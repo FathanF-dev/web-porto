@@ -26,12 +26,12 @@ const AboutDetail = ({ onClose }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d4 ${animated ? 'show' : ''}`}>
-            I am a full stack software engineer with experience building modern web applications. 
-            My journey started with a fascination for creating things from scratch, and I've 
+            I am a full stack software engineer with experience building modern web applications.
+            My journey started with a fascination for creating things from scratch, and I've
             evolved to architecting complex, scalable systems.
           </p>
           <p className={`desc anim from-bottom d5 ${animated ? 'show' : ''}`}>
-            I specialize in React, Node.js, and various cloud technologies. I'm always eager to 
+            I specialize in React, Node.js, and various cloud technologies. I'm always eager to
             learn new tools and paradigms to improve the quality of my work and the products I build.
           </p>
         </div>

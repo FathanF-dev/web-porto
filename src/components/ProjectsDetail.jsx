@@ -26,8 +26,8 @@ const ProjectsDetail = ({ onClose }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d4 ${animated ? 'show' : ''}`}>
-            Here you can find more in-depth information about the projects I've worked on. 
-            From initial conception and design to architecture and deployment, each project 
+            Here you can find more in-depth information about the projects I've worked on.
+            From initial conception and design to architecture and deployment, each project
             represents a unique challenge and learning opportunity.
           </p>
           <div className={`project-list anim from-bottom d5 ${animated ? 'show' : ''}`}>

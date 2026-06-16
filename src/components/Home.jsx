@@ -11,9 +11,9 @@ const Home = ({ isActive, goToPage }) => {
 
     if (isActive) {
       const timer = setTimeout(() => setAnimated(true), 100);
-      
+
       setTypedName('');
-      
+
       // Delay typing until the fade-in animation has started
       startTypingTimer = setTimeout(() => {
         typingInterval = setInterval(() => {
