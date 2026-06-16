@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import projectsImg from '../assets/images/projects.avif';
 
 const Projects = ({ isActive, onLearnMore }) => {
   const [animated, setAnimated] = useState(false);
@@ -31,7 +32,7 @@ const Projects = ({ isActive, onLearnMore }) => {
         </div>
         <div className={`split-image-container anim from-left d3 ${animated ? 'show' : ''}`}>
           <div className="img-wrapper projects-image-transition">
-            <img src="/projects.avif" alt="My Projects" />
+            <img src={projectsImg} alt="My Projects" />
           </div>
         </div>
       </div>

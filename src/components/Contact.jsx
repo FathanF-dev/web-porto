@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import setupImg from '../assets/images/setup.avif';
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaDiscord } from 'react-icons/fa';
 
 const Contact = ({ isActive }) => {
@@ -49,7 +50,7 @@ const Contact = ({ isActive }) => {
         </div>
         <div className={`split-image-container anim from-left d3 ${animated ? 'show' : ''}`}>
           <div className="img-wrapper">
-            <img src="/setup.avif" alt="Contact" />
+            <img src={setupImg} alt="Contact" />
           </div>
         </div>
       </div>

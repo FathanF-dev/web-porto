@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import profileImg from '../assets/images/profile.jpg';
 
 const Home = ({ isActive, goToPage }) => {
   const [animated, setAnimated] = useState(false);
@@ -73,7 +74,7 @@ const Home = ({ isActive, goToPage }) => {
 
         <div className={`home-image anim from-bottom d2 ${animated ? 'show' : ''}`}>
           <div className="img-wrapper">
-            <img src="/profile.jpg" alt="Fathan Fatahilah" />
+            <img src={profileImg} alt="Fathan Fatahilah" />
           </div>
         </div>
       </div>

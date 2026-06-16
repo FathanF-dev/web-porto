@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import aboutMeImg from '../assets/images/AboutMe.jpeg';
 
 const AboutDetail = ({ onClose }) => {
   const [animated, setAnimated] = useState(false);
@@ -16,7 +17,7 @@ const AboutDetail = ({ onClose }) => {
       <div className="detail-content">
         <div className="detail-image-container">
           <div className="img-wrapper about-image-transition">
-            <img src="/AboutMe.jpeg" alt="About Me Detail" />
+            <img src={aboutMeImg} alt="About Me Detail" />
           </div>
         </div>
         <div className="detail-text-container">
