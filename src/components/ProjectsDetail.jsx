@@ -99,7 +99,7 @@ const ProjectsDetail = ({ onClose }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d4 ${animated ? 'show' : ''}`}>
-            Here you can find more in-depth information about my projects and security research. From automated decision engines and threat simulation to secure cloud deployments, each project represents a unique exploration of AI and security architecture.
+            Here you can find more in-depth documentation and highlights of my academic and independent projects. From practical hardware maintenance and interactive 3D game development to autonomous AI algorithms and cybersecurity solutions, each project represents a unique exploration of modern technology and problem-solving.
           </p>
         </div>
 

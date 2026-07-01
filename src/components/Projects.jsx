@@ -23,7 +23,7 @@ const Projects = ({ isActive, onLearnMore }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            Selected security tools, educational game development, vulnerability research, and AI defense projects I've worked on. From interactive 3D educational games on Roblox Studio to secure AI architecture and algorithm design.
+            A showcase of selected academic assignments, practical IT solutions, and software development projects. Discover works ranging from hardware services and interactive educational game development to intelligent AI algorithm exploration and security research.
           </p>
           <div className={`anim from-bottom d4 ${animated ? 'show' : ''}`}>
             <button className="btn-primary" onClick={onLearnMore}>Learn More</button>

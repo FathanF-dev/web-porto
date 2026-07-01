@@ -23,7 +23,7 @@ const About = ({ isActive, onLearnMore }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            A brief introduction to my journey in cyber security. I am passionate about securing digital ecosystems, identifying critical vulnerabilities, and engineering resilient defenses to protect sensitive systems from sophisticated threat actors.
+            A passionate Information Technology student and tech enthusiast eager to build practical digital solutions. With a versatile skill set spanning software development, interactive game design, system analysis, and cybersecurity, I continuously strive to explore modern technologies and create impactful applications.
           </p>
           <div className={`anim from-bottom d4 ${animated ? 'show' : ''}`}>
             <button className="btn-primary" onClick={onLearnMore}>Learn More</button>
