@@ -154,9 +154,6 @@ function App() {
         <ProjectsDetail onClose={closeDetail} />
       )}
 
-      <div className="inspired-badge">
-        Inspired by <a href="https://www.alvalens.my.id" target="_blank" rel="noopener noreferrer">Alvalens</a>
-      </div>
     </>
   );
 }

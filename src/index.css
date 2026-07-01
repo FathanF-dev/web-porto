@@ -431,28 +431,6 @@ img {
   50% { transform: scaleY(0.5); opacity: 0.4; }
 }
 
-/* ===== INSPIRED BY BADGE ===== */
-.inspired-badge {
-  position: fixed;
-  bottom: 0.5rem;
-  right: 1rem;
-  font-size: 0.65rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.1em;
-  z-index: 90;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-}
-
-.inspired-badge:hover {
-  opacity: 1;
-}
-
-.inspired-badge a {
-  color: var(--text-secondary);
-  text-decoration: underline;
-}
-
 /* ===== ANIMATIONS ===== */
 .anim {
   opacity: 0;
