@@ -59,13 +59,10 @@ const Home = ({ isActive, goToPage }) => {
             {typedName}<span className="typing-cursor">|</span>
           </h3>
           <h1 className={`anim from-bottom d2 ${animated ? 'show' : ''}`}>
-            Full Stack Software Engineer
+            Cyber Security Enthusiast
           </h1>
           <p className={`description anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            Hi! I'm Fathan fatahilah, a fullstack software engineer specializing in modern
-            Web Development with a growing focus on Artificial Intelligence. I
-            architect scalable, production-ready engines—from high-traffic
-            microservices to SaaS platforms.
+            Hi! I'm Fathan Fatahilah, a Cyber Security Enthusiast & Ethical Hacker dedicated to safeguarding digital landscapes. I specialize in vulnerability assessment, network defense, penetration testing, and securing modern AI & Cloud infrastructures against evolving threats.
           </p>
           <div className={`home-buttons anim from-bottom d4 ${animated ? 'show' : ''}`}>
             <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); goToPage(3); }}>Contact Me</a>

@@ -23,9 +23,7 @@ const About = ({ isActive, onLearnMore }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            A brief introduction to my journey as a software engineer. I'm
-            passionate about building products that are not only functional but
-            also provide a seamless and visually stunning experience.
+            A brief introduction to my journey in cyber security. I am passionate about securing digital ecosystems, identifying critical vulnerabilities, and engineering resilient defenses to protect sensitive systems from sophisticated threat actors.
           </p>
           <div className={`anim from-bottom d4 ${animated ? 'show' : ''}`}>
             <button className="btn-primary" onClick={onLearnMore}>Learn More</button>

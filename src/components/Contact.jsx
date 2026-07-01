@@ -26,12 +26,8 @@ const Contact = ({ isActive }) => {
           <p className={`desc anim from-bottom d3 ${animated ? 'show' : ''}`}>
             Feel free to contact me if you have any questions or just want to say hi.
           </p>
-          <p className={`contact-email anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            <a href="mailto:fathanfthlh356@gmail.com">fathanfthlh356@gmail.com</a>
-          </p>
-
           <div className="contact-socials">
-            <a href="mailto:fathanfthlh356@gmail.com" className={`social-icon anim from-bottom d1 ${animated ? 'show' : ''}`} aria-label="Email">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fathanfthlh356@gmail.com" target="_blank" rel="noopener noreferrer" className={`social-icon anim from-bottom d1 ${animated ? 'show' : ''}`} aria-label="Email">
               <FaEnvelope />
             </a>
             <a href="https://github.com/FathanF-dev" target="_blank" rel="noopener noreferrer" className={`social-icon anim from-bottom d2 ${animated ? 'show' : ''}`} aria-label="GitHub">

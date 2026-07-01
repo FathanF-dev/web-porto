@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { flushSync } from 'react-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -38,7 +39,9 @@ function App() {
       return;
     }
     document.startViewTransition(() => {
-      setDetailPage(page);
+      flushSync(() => {
+        setDetailPage(page);
+      });
     });
   };
 
@@ -48,7 +51,9 @@ function App() {
       return;
     }
     document.startViewTransition(() => {
-      setDetailPage(null);
+      flushSync(() => {
+        setDetailPage(null);
+      });
     });
   };
 
@@ -71,7 +76,7 @@ function App() {
 
     window.addEventListener('wheel', handleWheel, { passive: false });
     return () => window.removeEventListener('wheel', handleWheel);
-  }, [currentPage, goToPage]);
+  }, [currentPage, goToPage, detailPage]);
 
   // Touch handlers
   useEffect(() => {
@@ -97,7 +102,7 @@ function App() {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentPage, goToPage]);
+  }, [currentPage, goToPage, detailPage]);
 
   // Keyboard handler
   useEffect(() => {
@@ -114,7 +119,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentPage, goToPage]);
+  }, [currentPage, goToPage, detailPage]);
 
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
@@ -142,14 +147,6 @@ function App() {
               <Contact isActive={currentPage === 3} />
             </div>
           </div>
-
-          {/* Scroll indicator - only on first page */}
-          {currentPage === 0 && (
-            <div className="scroll-indicator">
-              <span>Scroll</span>
-              <div className="line"></div>
-            </div>
-          )}
         </>
       ) : detailPage === 'about' ? (
         <AboutDetail onClose={closeDetail} />
