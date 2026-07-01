@@ -221,10 +221,10 @@ const AboutDetail = ({ onClose }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d4 ${animated ? 'show' : ''}`}>
-            I am a dedicated Cyber Security Specialist and Ethical Hacker focusing on defending complex digital infrastructures. My journey began with a curiosity about system internals—understanding how software and networks operate so I could uncover vulnerabilities before threat actors do.
+            I am an Information Technology student with a focus on Cyber Security and software development. My journey began with a practical curiosity about system internals—understanding how software, operating systems, and networks operate under the hood to build secure infrastructures.
           </p>
           <p className={`desc anim from-bottom d5 ${animated ? 'show' : ''}`}>
-            With extensive experience in penetration testing, threat intelligence, and cloud security (Microsoft Azure & Fabric), I bridge the gap between cutting-edge Artificial Intelligence and robust defense paradigms.
+            With practical experience in network analysis, vulnerability assessment, system troubleshooting, and cloud technologies (Microsoft Azure & Fabric), I enjoy solving technical problems and developing reliable applications.
           </p>
         </div>
 

@@ -59,10 +59,10 @@ const Home = ({ isActive, goToPage }) => {
             {typedName}<span className="typing-cursor">|</span>
           </h3>
           <h1 className={`anim from-bottom d2 ${animated ? 'show' : ''}`}>
-            Cyber Security Enthusiast
+            Cyber Security
           </h1>
           <p className={`description anim from-bottom d3 ${animated ? 'show' : ''}`}>
-            Hi! I'm Fathan Fatahilah, a Cyber Security Enthusiast & Ethical Hacker dedicated to safeguarding digital landscapes. I specialize in vulnerability assessment, network defense, penetration testing, and securing modern AI & Cloud infrastructures against evolving threats.
+            Hi! I'm Fathan Fatahilah, an Information Technology student focused on Cyber Security and Software Development. I have a practical background in network defense, vulnerability assessment, system maintenance, and building interactive digital applications.
           </p>
           <div className={`home-buttons anim from-bottom d4 ${animated ? 'show' : ''}`}>
             <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); goToPage(3); }}>Contact Me</a>
