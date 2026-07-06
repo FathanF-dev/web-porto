@@ -641,22 +641,62 @@ img {
   margin-bottom: 0.5rem;
 }
 
+/* ===== BRAND SPACER DIVIDER ===== */
+.brand-spacer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  width: 100%;
+}
+
+.brand-spacer::before,
+.brand-spacer::after {
+  content: '';
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, var(--border), rgba(139, 92, 246, 0.4));
+}
+
+.brand-spacer::after {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.4), var(--border), transparent);
+}
+
+.brand-spacer img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  opacity: 0.85;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.brand-spacer:hover img {
+  transform: scale(1.15) rotate(6deg);
+  opacity: 1;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+  border-color: #06b6d4;
+}
+
 /* ===== CYBER ARSENAL MODULES ===== */
 .cyber-arsenal-section {
   width: 100%;
-  margin-top: 3.5rem;
+  margin-top: 1.5rem;
 }
 
 .arsenal-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 2.5rem;
 }
 
 .arsenal-badge {
   display: inline-block;
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -666,9 +706,8 @@ img {
 }
 
 .arsenal-header h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
@@ -677,7 +716,7 @@ img {
   color: var(--text-secondary);
   font-size: 1rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .arsenal-scroll-container {
@@ -1562,3 +1601,147 @@ body.dark .cert-card:hover {
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* ===== MONOCHROME TO COLORFUL ON HOVER/TOUCH ===== */
+/* Core Technical Skills Cards */
+.cyber-node-card {
+  filter: grayscale(100%);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease !important;
+}
+.cyber-node-card:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Arsenal Badges */
+.arsenal-badge {
+  filter: grayscale(100%);
+  transition: all 0.3s ease, filter 0.4s ease !important;
+}
+.arsenal-badge:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+  color: #3b82f6 !important;
+}
+
+/* Certificate Cards & Images */
+.cert-card {
+  filter: grayscale(100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, filter 0.4s ease !important;
+}
+.cert-card:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Featured Project Sections */
+.featured-project-section {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.featured-project-section:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 20px 45px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Folder Cards & Wumpus Cards */
+.folder-card,
+.wumpus-card {
+  filter: grayscale(100%);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease !important;
+}
+.folder-card:hover,
+.wumpus-card:hover,
+.folder-pos-1:hover,
+.folder-pos-2:hover,
+.folder-pos-3:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 20px 45px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Badges, Highlight Tags & Navigation Arrows */
+.highlight-tag,
+.project-period,
+.featured-project-badge,
+.wumpus-badge,
+.roblox-badge,
+.nav-arrow-btn {
+  filter: grayscale(100%);
+  transition: all 0.3s ease, filter 0.4s ease !important;
+}
+.highlight-tag:hover,
+.project-period:hover,
+.featured-project-badge:hover,
+.wumpus-badge:hover,
+.roblox-badge:hover,
+.nav-arrow-btn:hover {
+  filter: grayscale(0%) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Contact Social Icons */
+.social-icon {
+  filter: grayscale(100%);
+  transition: all 0.3s ease, filter 0.3s ease, background-color 0.3s ease !important;
+}
+.contact-socials a:nth-child(1):hover { background: #3b82f6 !important; color: #ffffff !important; filter: grayscale(0%) !important; }
+.contact-socials a:nth-child(2):hover { background: #2563eb !important; color: #ffffff !important; filter: grayscale(0%) !important; }
+.contact-socials a:nth-child(3):hover { background: #0ea5e9 !important; color: #ffffff !important; filter: grayscale(0%) !important; }
+.contact-socials a:nth-child(4):hover { background: #0284c7 !important; color: #ffffff !important; filter: grayscale(0%) !important; }
+.contact-socials a:nth-child(5):hover { background: #38bdf8 !important; color: #ffffff !important; filter: grayscale(0%) !important; }
+
+/* Ensure Lightbox modal images are always displayed in full color when opened */
+.lightbox-content,
+.lightbox-content img {
+  filter: grayscale(0%) !important;
+}
+
+/* ===== DETAIL FOOTER ===== */
+.detail-footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 4rem auto 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #000000;
+  position: relative;
+  text-align: left;
+}
+
+body.dark .detail-footer {
+  border-top: 1px solid #ffffff;
+}
+
+.detail-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: left;
+}
+
+.footer-secret {
+  font-family: monospace;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: help;
+  padding: 0 0.25rem;
+}
+
+.footer-secret:hover {
+  opacity: 1;
+  color: #8b5cf6;
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+

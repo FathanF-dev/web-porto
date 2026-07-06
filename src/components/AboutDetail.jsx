@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import aboutMeImg from '../assets/images/AboutMe.jpeg';
+import brandLogo from '../assets/images/brand_logo.jpg';
+import DetailFooter from './DetailFooter';
 import pythonCertImg from '../assets/Certificate/python_cert.png';
 import azureCertImg from '../assets/Certificate/azure_cert.png';
 import fabricCertImg from '../assets/Certificate/fabric_cert.png';
-import { FaShieldAlt, FaUserSecret, FaNetworkWired, FaLock, FaAward, FaExternalLinkAlt, FaArrowsAltH, FaDragon, FaJava, FaSearch, FaHdd } from 'react-icons/fa';
+import { FaShieldAlt, FaUserSecret, FaNetworkWired, FaLock, FaAward, FaExternalLinkAlt, FaArrowsAltH, FaDragon, FaJava, FaSearch, FaHdd, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
 import { SiPython, SiCplusplus, SiBurpsuite, SiWireshark, SiLua } from 'react-icons/si';
 
 const certificates = [
@@ -36,88 +38,51 @@ const certificates = [
   }
 ];
 
-const coreSkills = [
-  { icon: <FaDragon style={{ color: '#ef4444' }} />, label: "GHIDRA", tag: "REV-ENG", subtitle: "Reverse Engineering Suite" },
-  { icon: <SiPython style={{ color: '#3b82f6' }} />, label: "PYTHON", tag: "AUTOMATION", subtitle: "Exploit & Tool Scripting" },
-  { icon: <SiCplusplus style={{ color: '#0284c7' }} />, label: "C++", tag: "LOW-LEVEL", subtitle: "Systems & Payload Dev" },
-  { icon: <FaJava style={{ color: '#f59e0b' }} />, label: "JAVA", tag: "ENTERPRISE", subtitle: "Secure Backend Architecture" },
-  { icon: <FaNetworkWired style={{ color: '#10b981' }} />, label: "NETWORK MINER", tag: "FORENSIC", subtitle: "Network Traffic Analysis" },
-  { icon: <SiLua style={{ color: '#60a5fa' }} />, label: "LUA", tag: "SCRIPTING", subtitle: "Fast Extension & Tooling" },
-  { icon: <SiBurpsuite style={{ color: '#f97316' }} />, label: "BURP SUITE", tag: "VAPT", subtitle: "Web Scanner & Proxy" },
-  { icon: <SiWireshark style={{ color: '#06b6d4' }} />, label: "WIRESHARK", tag: "SNIFFING", subtitle: "Packet Inspection" },
-  { icon: <FaSearch style={{ color: '#a855f7' }} />, label: "AUTOPSY", tag: "INVESTIGATE", subtitle: "Digital Forensics Platform" },
-  { icon: <FaHdd style={{ color: '#94a3b8' }} />, label: "FTK IMAGER", tag: "EVIDENCE", subtitle: "Disk Acquisition & Triage" }
+// Programming Languages & Web Development (Ordered from strongest to weakest)
+const programmingSkills = [
+  { icon: <FaHtml5 style={{ color: '#3b82f6' }} />, label: "HTML5", subtitle: "Modern Web Structure & Semantics" },
+  { icon: <FaCss3Alt style={{ color: '#60a5fa' }} />, label: "CSS3", subtitle: "Responsive Layouts & Styling" },
+  { icon: <SiLua style={{ color: '#38bdf8' }} />, label: "LUA", subtitle: "Fast Extension & Tooling Scripting" },
+  { icon: <SiCplusplus style={{ color: '#0284c7' }} />, label: "C++", subtitle: "Systems & Payload Development" },
+  { icon: <FaJava style={{ color: '#2563eb' }} />, label: "JAVA", subtitle: "Secure Backend Architecture" },
+  { icon: <FaJs style={{ color: '#0ea5e9' }} />, label: "JAVASCRIPT", subtitle: "Dynamic Logic & Interactive UI" },
+  { icon: <SiPython style={{ color: '#3b82f6' }} />, label: "PYTHON", subtitle: "Exploit & Tool Scripting / Data Science" }
+];
+
+// Cybersecurity & Forensic Tools
+const toolSkills = [
+  { icon: <FaDragon style={{ color: '#3b82f6' }} />, label: "GHIDRA", subtitle: "Reverse Engineering Suite" },
+  { icon: <SiWireshark style={{ color: '#0ea5e9' }} />, label: "WIRESHARK", subtitle: "Packet Inspection & Sniffing" },
+  { icon: <FaHdd style={{ color: '#60a5fa' }} />, label: "FTK IMAGER", subtitle: "Disk Acquisition & Triage" },
+  { icon: <FaNetworkWired style={{ color: '#38bdf8' }} />, label: "NETWORK MINER", subtitle: "Network Traffic Forensic Analysis" },
+  { icon: <FaSearch style={{ color: '#2563eb' }} />, label: "AUTOPSY", subtitle: "Digital Forensics Investigation Platform" },
+  { icon: <SiBurpsuite style={{ color: '#0284c7' }} />, label: "BURP SUITE", subtitle: "Web Scanner, Proxy & VAPT" }
 ];
 
 const AboutDetail = ({ onClose }) => {
   const [animated, setAnimated] = useState(false);
   const certScrollRef = useRef(null);
-  const skillsScrollRef = useRef(null);
+  const progScrollRef = useRef(null);
+  const toolsScrollRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimated(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const el = certScrollRef.current;
-    if (!el) return;
-    const handleWheel = (e) => {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY * 2.5;
-      }
-    };
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => el.removeEventListener('wheel', handleWheel);
-  }, []);
-
-  useEffect(() => {
-    const el = skillsScrollRef.current;
+  // Helper hook to attach smooth horizontal scroll (wheel + grab/drag)
+  const setupHorizontalScroll = (ref) => {
+    const el = ref.current;
     if (!el) return;
 
-    let animId;
     let isDragging = false;
     let startX = 0;
     let scrollLeftStart = 0;
-    let exactScrollLeft = el.scrollLeft;
-    let lastTime = performance.now();
-    let isPaused = false;
-
-    const getLoopPoint = () => {
-      if (el.children && el.children.length >= coreSkills.length && el.children[coreSkills.length]) {
-        return el.children[coreSkills.length].offsetLeft - el.children[0].offsetLeft;
-      }
-      return 0;
-    };
-
-    const step = (now) => {
-      if (!el) return;
-      const dt = (now - lastTime) / 1000;
-      lastTime = now;
-
-      if (dt < 0.2 && dt > 0) {
-        const loopPoint = getLoopPoint();
-        if (loopPoint > 0) {
-          if (!isDragging && !isPaused) {
-            exactScrollLeft += 65 * dt; // Steady auto scroll speed
-          }
-          if (exactScrollLeft >= loopPoint) {
-            exactScrollLeft -= loopPoint;
-          } else if (exactScrollLeft < 0) {
-            exactScrollLeft += loopPoint;
-          }
-          el.scrollLeft = exactScrollLeft;
-        }
-      }
-      animId = requestAnimationFrame(step);
-    };
-    animId = requestAnimationFrame(step);
 
     const handleMouseDown = (e) => {
       isDragging = true;
       startX = e.pageX - el.offsetLeft;
-      scrollLeftStart = exactScrollLeft;
+      scrollLeftStart = el.scrollLeft;
       el.style.cursor = 'grabbing';
     };
 
@@ -126,13 +91,7 @@ const AboutDetail = ({ onClose }) => {
       e.preventDefault();
       const x = e.pageX - el.offsetLeft;
       const walk = (startX - x) * 1.5;
-      exactScrollLeft = scrollLeftStart + walk;
-      const loopPoint = getLoopPoint();
-      if (loopPoint > 0) {
-        if (exactScrollLeft >= loopPoint) exactScrollLeft -= loopPoint;
-        else if (exactScrollLeft < 0) exactScrollLeft += loopPoint;
-      }
-      el.scrollLeft = exactScrollLeft;
+      el.scrollLeft = scrollLeftStart + walk;
     };
 
     const handleMouseUpOrLeave = () => {
@@ -146,62 +105,32 @@ const AboutDetail = ({ onClose }) => {
       if (e.deltaY !== 0 || e.deltaX !== 0) {
         e.preventDefault();
         const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
-        exactScrollLeft += delta * 1.5;
-        const loopPoint = getLoopPoint();
-        if (loopPoint > 0) {
-          if (exactScrollLeft >= loopPoint) exactScrollLeft -= loopPoint;
-          else if (exactScrollLeft < 0) exactScrollLeft += loopPoint;
-        }
-        el.scrollLeft = exactScrollLeft;
+        el.scrollLeft += delta * 2;
       }
-    };
-
-    const handleScroll = () => {
-      if (isDragging) return;
-      const diff = Math.abs(el.scrollLeft - exactScrollLeft);
-      if (diff > 5) {
-        exactScrollLeft = el.scrollLeft;
-        const loopPoint = getLoopPoint();
-        if (loopPoint > 0) {
-          if (exactScrollLeft >= loopPoint) {
-            exactScrollLeft -= loopPoint;
-            el.scrollLeft = exactScrollLeft;
-          } else if (exactScrollLeft < 0) {
-            exactScrollLeft += loopPoint;
-            el.scrollLeft = exactScrollLeft;
-          }
-        }
-      }
-    };
-
-    const handleTouchStart = () => {
-      isPaused = true;
-    };
-
-    const handleTouchEnd = () => {
-      isPaused = false;
-      exactScrollLeft = el.scrollLeft;
     };
 
     el.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUpOrLeave);
     el.addEventListener('wheel', handleWheel, { passive: false });
-    el.addEventListener('scroll', handleScroll, { passive: true });
-    el.addEventListener('touchstart', handleTouchStart, { passive: true });
-    el.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
-      cancelAnimationFrame(animId);
       el.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUpOrLeave);
       el.removeEventListener('wheel', handleWheel);
-      el.removeEventListener('scroll', handleScroll);
-      el.removeEventListener('touchstart', handleTouchStart);
-      el.removeEventListener('touchend', handleTouchEnd);
     };
-  }, []);
+  };
+
+  const handleScrollContainer = (ref, amount) => {
+    if (ref && ref.current) {
+      ref.current.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => setupHorizontalScroll(certScrollRef), []);
+  useEffect(() => setupHorizontalScroll(progScrollRef), []);
+  useEffect(() => setupHorizontalScroll(toolsScrollRef), []);
 
   return (
     <div className="detail-page">
@@ -221,44 +150,92 @@ const AboutDetail = ({ onClose }) => {
             <span></span>
           </div>
           <p className={`desc anim from-bottom d4 ${animated ? 'show' : ''}`}>
-            I am an Information Technology student with a focus on Cyber Security and software development. My journey began with a practical curiosity about system internals—understanding how software, operating systems, and networks operate under the hood to build secure infrastructures.
+            I am an Information Technology student with a focus on Cyber Security and software development. My journey began with a practical curiosity about system internals. understanding how software, operating systems, and networks operate under the hood to build secure infrastructures.
           </p>
           <p className={`desc anim from-bottom d5 ${animated ? 'show' : ''}`}>
             With practical experience in network analysis, vulnerability assessment, system troubleshooting, and cloud technologies (Microsoft Azure & Fabric), I enjoy solving technical problems and developing reliable applications.
           </p>
         </div>
 
+        {/* Brand Logo Spacer */}
+        <div className={`brand-spacer anim from-bottom d5 ${animated ? 'show' : ''}`}>
+          <img src={brandLogo} alt="Brand Logo Spacer" />
+        </div>
+
         {/* Core Skills Section */}
         <div className={`cyber-arsenal-section anim from-bottom d5 ${animated ? 'show' : ''}`}>
           <div className="arsenal-header">
-            <h2>CORE TECHNICAL SKILLS</h2>
-            <p className="arsenal-subtitle">Specialized toolkit engineered for vulnerability research, penetration testing, and digital forensics</p>
+            <h2>Core Technical Skills</h2>
           </div>
-          <div className="arsenal-scroll-container" ref={skillsScrollRef}>
-            {[...coreSkills, ...coreSkills, ...coreSkills, ...coreSkills].map((skill, idx) => (
-              <div className="cyber-node-card" key={idx}>
-                <div className="node-top-bar">
-                  <span className="node-tag">[{skill.tag}]</span>
-                  <span className="node-status"></span>
-                </div>
-                <div className="node-main">
-                  <div className="node-icon-glow">
-                    <div className="node-icon">{skill.icon}</div>
-                  </div>
-                  <div className="node-info">
-                    <h3 className="node-title">{skill.label}</h3>
-                    <span className="node-subtitle">{skill.subtitle}</span>
-                  </div>
-                </div>
-                <div className="node-bottom-line"></div>
+
+          {/* Subsection 1: Programming & Web Development */}
+          <div style={{ marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <span className="arsenal-badge" style={{ marginBottom: 0 }}>PROGRAMMING & WEB</span>
               </div>
-            ))}
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(progScrollRef, -330)} title="Scroll Left" aria-label="Scroll Left">&#8592;</button>
+                <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(progScrollRef, 330)} title="Scroll Right" aria-label="Scroll Right">&#8594;</button>
+              </div>
+            </div>
+            <div className="arsenal-scroll-container" ref={progScrollRef}>
+              {programmingSkills.map((skill, idx) => (
+                <div className="cyber-node-card" key={idx}>
+                  <div className="node-main">
+                    <div className="node-icon-glow">
+                      <div className="node-icon">{skill.icon}</div>
+                    </div>
+                    <div className="node-info">
+                      <h3 className="node-title">{skill.label}</h3>
+                      <span className="node-subtitle">{skill.subtitle}</span>
+                    </div>
+                  </div>
+                  <div className="node-bottom-line"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subsection 2: Cybersecurity & Forensic Tools */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <span className="arsenal-badge" style={{ marginBottom: 0 }}>SECURITY & FORENSIC TOOLS</span>
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(toolsScrollRef, -330)} title="Scroll Left" aria-label="Scroll Left">&#8592;</button>
+                <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(toolsScrollRef, 330)} title="Scroll Right" aria-label="Scroll Right">&#8594;</button>
+              </div>
+            </div>
+            <div className="arsenal-scroll-container" ref={toolsScrollRef}>
+              {toolSkills.map((skill, idx) => (
+                <div className="cyber-node-card" key={idx}>
+                  <div className="node-main">
+                    <div className="node-icon-glow">
+                      <div className="node-icon">{skill.icon}</div>
+                    </div>
+                    <div className="node-info">
+                      <h3 className="node-title">{skill.label}</h3>
+                      <span className="node-subtitle">{skill.subtitle}</span>
+                    </div>
+                  </div>
+                  <div className="node-bottom-line"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Licenses & Certifications Section */}
         <div className={`certificates-section anim from-bottom d5 ${animated ? 'show' : ''}`}>
-          <h2>Licenses & Certifications</h2>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <h2 style={{ marginBottom: 0 }}>Licenses & Certifications</h2>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(certScrollRef, -400)} title="Scroll Left" aria-label="Scroll Left">&#8592;</button>
+              <button className="nav-arrow-btn" style={{ width: '38px', height: '38px', fontSize: '1.1rem' }} onClick={() => handleScrollContainer(certScrollRef, 400)} title="Scroll Right" aria-label="Scroll Right">&#8594;</button>
+            </div>
+          </div>
           <div className="cert-scroll-container" ref={certScrollRef}>
             {certificates.map((cert, index) => (
               <div className="cert-card" key={index}>
@@ -282,6 +259,8 @@ const AboutDetail = ({ onClose }) => {
             ))}
           </div>
         </div>
+
+        <DetailFooter />
       </div>
     </div>
   );

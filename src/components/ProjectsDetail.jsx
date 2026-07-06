@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import projectsImg from '../assets/images/projects.avif';
+import brandLogo from '../assets/images/brand_logo.jpg';
+import DetailFooter from './DetailFooter';
 import benerin1 from '../assets/images/benerin1.jpg';
 import benerin2 from '../assets/images/benerin2.jpg';
 import benerin3 from '../assets/images/benerin3.png';
@@ -103,6 +105,11 @@ const ProjectsDetail = ({ onClose }) => {
           </p>
         </div>
 
+        {/* Brand Logo Spacer */}
+        <div className={`brand-spacer anim from-bottom d5 ${animated ? 'show' : ''}`}>
+          <img src={brandLogo} alt="Brand Logo Spacer" />
+        </div>
+
         {/* Featured Project Section #1: benerin.aja */}
         <div className={`featured-project-section anim from-bottom d5 ${animated ? 'show' : ''}`}>
           <div className="featured-project-badge">FEATURED COURSE PROJECT</div>
@@ -165,19 +172,6 @@ const ProjectsDetail = ({ onClose }) => {
         <div className={`featured-project-section wumpus-section anim from-bottom d5 ${animated ? 'show' : ''}`}>
           <div className="featured-project-badge wumpus-badge">FEATURED AI GAME PROJECT</div>
           <div className="featured-project-layout wumpus-layout">
-            <div className="wumpus-showcase-wrapper">
-              <div className="wumpus-card" onClick={() => setLightboxImg(wumpusImg)} title="Click to enlarge screenshot">
-                <div className="wumpus-tab">
-                  <span>🎮 AI Navigation Agent (8x8 Grid)</span>
-                  <span className="zoom-badge">🔍 Zoom</span>
-                </div>
-                <div className="wumpus-img-box">
-                  <img src={wumpusImg} alt="Wumpus AI Navigation System" />
-                </div>
-                <div className="wumpus-caption">Autonomous grid exploration, hazard avoidance, and priority Wumpus hunting</div>
-              </div>
-            </div>
-
             <div className="featured-project-info">
               <div className="project-header">
                 <h2>Wumpus AI Navigation System</h2>
@@ -197,6 +191,19 @@ const ProjectsDetail = ({ onClose }) => {
                 <a href="https://github.com/FathanF-dev/Wumpus-With-Ai-Knowledge" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
                   View Repository on GitHub &rarr;
                 </a>
+              </div>
+            </div>
+
+            <div className="wumpus-showcase-wrapper">
+              <div className="wumpus-card" onClick={() => setLightboxImg(wumpusImg)} title="Click to enlarge screenshot">
+                <div className="wumpus-tab">
+                  <span>🎮 AI Navigation Agent (8x8 Grid)</span>
+                  <span className="zoom-badge">🔍 Zoom</span>
+                </div>
+                <div className="wumpus-img-box">
+                  <img src={wumpusImg} alt="Wumpus AI Navigation System" />
+                </div>
+                <div className="wumpus-caption">Autonomous grid exploration, hazard avoidance, and priority Wumpus hunting</div>
               </div>
             </div>
           </div>
@@ -259,6 +266,8 @@ const ProjectsDetail = ({ onClose }) => {
             </div>
           </div>
         </div>
+
+        <DetailFooter />
       </div>
     </div>
   );
