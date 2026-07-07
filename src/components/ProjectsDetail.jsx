@@ -123,11 +123,6 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An entrepreneurship project created for the Economic Survival course, providing hardware maintenance and cleaning services. We offer reliable deep cleaning and thermal paste replacement (repasta) services for standard and gaming laptops to resolve overheating and keep hardware running smoothly.
               </p>
-              <div style={{ background: 'var(--bg-primary)', padding: '0.7rem 1rem', borderRadius: '8px', borderLeft: '3px solid #3b82f6', borderTop: '1px solid var(--border)', borderRight: '1px solid var(--border)', borderBottom: '1px solid var(--border)', marginBottom: '1.4rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.85rem', lineHeight: '1.45' }}>
-                <div><span style={{ fontWeight: '700', color: '#3b82f6' }}>🎯 Problem:</span> Overheating laptops & hardware degradation from dust/old paste.</div>
-                <div><span style={{ fontWeight: '700', color: '#8b5cf6' }}>👤 My Role:</span> Lead Hardware Technician (Diagnosis & Deep Cleaning).</div>
-                <div><span style={{ fontWeight: '700', color: '#10b981' }}>💡 Decision:</span> Standardized 15-min diagnosis & high-conductivity repasta.</div>
-              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">❄️ Deep Cleaning</span>
                 <span className="highlight-tag">🔧 Repasta (Thermal Paste)</span>
@@ -186,11 +181,6 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An autonomous knowledge-based AI game project developed as an academic school assignment. The game features an intelligent agent navigating a hazardous 8x8 grid world. By leveraging the Depth-First Search (DFS) algorithm combined with logical inference, the AI systematically explores unknown cells, detects hidden hazards like pits and the Wumpus, prioritizes hunting targets, and retrieves gold coins with maximum efficiency.
               </p>
-              <div style={{ background: 'var(--bg-primary)', padding: '0.7rem 1rem', borderRadius: '8px', borderLeft: '3px solid #8b5cf6', borderTop: '1px solid var(--border)', borderRight: '1px solid var(--border)', borderBottom: '1px solid var(--border)', marginBottom: '1.4rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.85rem', lineHeight: '1.45' }}>
-                <div><span style={{ fontWeight: '700', color: '#3b82f6' }}>🎯 Problem:</span> Navigating hazardous 8x8 grid world safely to retrieve gold.</div>
-                <div><span style={{ fontWeight: '700', color: '#8b5cf6' }}>👤 My Role:</span> AI Algorithm Developer & Python Programmer.</div>
-                <div><span style={{ fontWeight: '700', color: '#10b981' }}>💡 Decision:</span> Chose Depth-First Search (DFS) & logic inference over BFS/A* for memory efficiency.</div>
-              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">🧠 Depth-First Search (DFS)</span>
                 <span className="highlight-tag">🤖 Knowledge-Based AI</span>
@@ -232,11 +222,6 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An interactive 3D educational game developed on Roblox Studio designed to teach players and society the vital importance of environmental care and proper waste management. Set in an immersive urban environment, players take on the role of eco-guardians tasked with exploring city districts, interacting with quest NPCs like the Wise Man, and actively cleaning up scattered trash such as plastic bottles and organic litter. By gamifying waste collection and civic discipline through interactive missions, dialog systems, and leaderboards, this project transforms eco-education into an engaging and impactful gaming experience.
               </p>
-              <div style={{ background: 'var(--bg-primary)', padding: '0.7rem 1rem', borderRadius: '8px', borderLeft: '3px solid #10b981', borderTop: '1px solid var(--border)', borderRight: '1px solid var(--border)', borderBottom: '1px solid var(--border)', marginBottom: '1.4rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.85rem', lineHeight: '1.45' }}>
-                <div><span style={{ fontWeight: '700', color: '#3b82f6' }}>🎯 Problem:</span> Lack of youth engagement in traditional eco-awareness education.</div>
-                <div><span style={{ fontWeight: '700', color: '#8b5cf6' }}>👤 My Role:</span> Game Developer & Lua Scripting Lead (NPC & Quest logic).</div>
-                <div><span style={{ fontWeight: '700', color: '#10b981' }}>💡 Decision:</span> Designed story-driven NPC quest system instead of basic point collection.</div>
-              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">♻️ Eco-Awareness Education</span>
                 <span className="highlight-tag">🗑️ Interactive Waste Collection</span>
