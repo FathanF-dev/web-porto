@@ -123,6 +123,11 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An entrepreneurship project created for the Economic Survival course, providing hardware maintenance and cleaning services. We offer reliable deep cleaning and thermal paste replacement (repasta) services for standard and gaming laptops to resolve overheating and keep hardware running smoothly.
               </p>
+              <div style={{ background: 'var(--bg-primary)', padding: '1.2rem', borderRadius: '10px', border: '1px solid var(--border)', marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <div><strong style={{ color: '#3b82f6' }}>🎯 The Problem:</strong> Overheating laptops and hardware performance degradation caused by dust accumulation and dried thermal paste in standard and gaming laptops.</div>
+                <div><strong style={{ color: '#8b5cf6' }}>👤 My Specific Role:</strong> Lead Hardware Technician & Service Specialist — responsible for diagnosing thermal issues, performing deep motherboard cleaning, and precision thermal paste re-application.</div>
+                <div><strong style={{ color: '#10b981' }}>💡 Key Decision Made:</strong> Implemented a standardized 15-minute diagnostic protocol and selected high-conductivity thermal compound to ensure a guaranteed 10°C–15°C temperature drop under heavy load.</div>
+              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">❄️ Deep Cleaning</span>
                 <span className="highlight-tag">🔧 Repasta (Thermal Paste)</span>
@@ -181,6 +186,11 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An autonomous knowledge-based AI game project developed as an academic school assignment. The game features an intelligent agent navigating a hazardous 8x8 grid world. By leveraging the Depth-First Search (DFS) algorithm combined with logical inference, the AI systematically explores unknown cells, detects hidden hazards like pits and the Wumpus, prioritizes hunting targets, and retrieves gold coins with maximum efficiency.
               </p>
+              <div style={{ background: 'var(--bg-primary)', padding: '1.2rem', borderRadius: '10px', border: '1px solid var(--border)', marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <div><strong style={{ color: '#3b82f6' }}>🎯 The Problem:</strong> Navigating an unknown, hazardous 8x8 grid world filled with deadly pits and the Wumpus without dying while autonomously locating and retrieving gold coins.</div>
+                <div><strong style={{ color: '#8b5cf6' }}>👤 My Specific Role:</strong> AI Algorithm Developer & Python Programmer — tasked with designing the knowledge base logic, inference rules, and search trajectory algorithms.</div>
+                <div><strong style={{ color: '#10b981' }}>💡 Key Decision Made:</strong> Chose Depth-First Search (DFS) combined with propositional logic inference over standard BFS/A* to minimize memory overhead during deep grid exploration and ensure systematic backtracking when hazards are inferred.</div>
+              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">🧠 Depth-First Search (DFS)</span>
                 <span className="highlight-tag">🤖 Knowledge-Based AI</span>
@@ -222,6 +232,11 @@ const ProjectsDetail = ({ onClose }) => {
               <p className="project-desc">
                 An interactive 3D educational game developed on Roblox Studio designed to teach players and society the vital importance of environmental care and proper waste management. Set in an immersive urban environment, players take on the role of eco-guardians tasked with exploring city districts, interacting with quest NPCs like the Wise Man, and actively cleaning up scattered trash such as plastic bottles and organic litter. By gamifying waste collection and civic discipline through interactive missions, dialog systems, and leaderboards, this project transforms eco-education into an engaging and impactful gaming experience.
               </p>
+              <div style={{ background: 'var(--bg-primary)', padding: '1.2rem', borderRadius: '10px', border: '1px solid var(--border)', marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <div><strong style={{ color: '#3b82f6' }}>🎯 The Problem:</strong> Lack of environmental awareness and waste management discipline among youth and society, which traditional educational methods often fail to address engagingly.</div>
+                <div><strong style={{ color: '#8b5cf6' }}>👤 My Specific Role:</strong> Game Developer & Lua Scripting Lead — engineered the interactive NPC dialog systems, waste collection mechanics, and quest progression logic.</div>
+                <div><strong style={{ color: '#10b981' }}>💡 Key Decision Made:</strong> Designed a gamified quest-based progression system with story-driven NPCs (like the Wise Man) instead of a generic point-collection system, significantly increasing player retention and emotional connection to environmental care.</div>
+              </div>
               <div className="project-highlights">
                 <span className="highlight-tag">♻️ Eco-Awareness Education</span>
                 <span className="highlight-tag">🗑️ Interactive Waste Collection</span>
