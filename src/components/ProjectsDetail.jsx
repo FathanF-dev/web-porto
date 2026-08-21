@@ -2,14 +2,8 @@ import React, { useEffect, useState } from 'react';
 import projectsImg from '../assets/images/projects.avif';
 import brandLogo from '../assets/images/brand_logo.jpg';
 import DetailFooter from './DetailFooter';
-import benerin1 from '../assets/images/benerin1.jpg';
-import benerin2 from '../assets/images/benerin2.jpg';
-import benerin3 from '../assets/images/benerin3.png';
 import wumpusImg from '../assets/images/wumpus.png';
-import robloxEdu1 from '../assets/images/roblox_edu1.png';
-import robloxEdu2 from '../assets/images/roblox_edu2.png';
-import robloxEdu3 from '../assets/images/roblox_edu3.png';
-import robloxEdu4 from '../assets/images/roblox_edu4.png';
+import { folders, robloxFolders } from '../data/projectsData';
 
 
 const ProjectsDetail = ({ onClose }) => {
@@ -17,11 +11,7 @@ const ProjectsDetail = ({ onClose }) => {
   const [lightboxImg, setLightboxImg] = useState(null);
   const [activeFolder, setActiveFolder] = useState(0);
 
-  const folders = [
-    { id: 1, img: benerin1, title: '📁 Booth & Team', caption: 'Our service booth during the Economic Survival exhibition project' },
-    { id: 2, img: benerin2, title: '📁 Customer Service', caption: 'Providing direct consultations and laptop cleaning for regular and gaming laptops' },
-    { id: 3, img: benerin3, title: '📁 Repasta in Action', caption: 'Carefully replacing thermal paste to maintain optimal laptop temperatures' }
-  ];
+
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimated(true), 100);
@@ -48,12 +38,7 @@ const ProjectsDetail = ({ onClose }) => {
 
   const [activeRobloxFolder, setActiveRobloxFolder] = useState(0);
 
-  const robloxFolders = [
-    { id: 1, img: robloxEdu1, title: '📁 City Quest Exploration', caption: 'Interacting with Wise Man to receive environmental cleaning quests and eco-guardianship guidance' },
-    { id: 2, img: robloxEdu2, title: '📁 Urban Waste Clean-Up', caption: 'Locating and picking up scattered bottles and litter across city streets to keep the neighborhood clean' },
-    { id: 3, img: robloxEdu3, title: '📁 NPC Dialog & Progression', caption: 'Engaging with character transporters and community leaders to unlock new urban zones and challenges' },
-    { id: 4, img: robloxEdu4, title: '📁 Gamified Education', caption: 'Promoting eco-awareness and waste management discipline through rewarding interactive gameplay' }
-  ];
+
 
   const handleRobloxNext = () => {
     setActiveRobloxFolder((prev) => (prev + 1) % robloxFolders.length);
