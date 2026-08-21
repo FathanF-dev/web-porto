@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import aboutMeImg from '../assets/images/AboutMe.jpeg';
+import aboutMeImg from '../assets/images/AboutMe.webp';
 
 const About = ({ isActive, onLearnMore }) => {
   const [animated, setAnimated] = useState(false);

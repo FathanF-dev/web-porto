@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import profileImg from '../assets/images/profile.jpg';
+import profileImg from '../assets/images/profile.webp';
 
 const Home = ({ isActive, goToPage }) => {
   const [animated, setAnimated] = useState(false);

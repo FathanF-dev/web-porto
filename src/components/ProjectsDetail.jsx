@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import projectsImg from '../assets/images/projects.avif';
-import brandLogo from '../assets/images/brand_logo.jpg';
+import brandLogo from '../assets/images/brand_logo.webp';
 import DetailFooter from './DetailFooter';
-import wumpusImg from '../assets/images/wumpus.png';
+import wumpusImg from '../assets/images/wumpus.webp';
 import { folders, robloxFolders } from '../data/projectsData';
 
 

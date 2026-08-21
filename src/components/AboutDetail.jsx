@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import aboutMeImg from '../assets/images/AboutMe.jpeg';
-import brandLogo from '../assets/images/brand_logo.jpg';
+import aboutMeImg from '../assets/images/AboutMe.webp';
+import brandLogo from '../assets/images/brand_logo.webp';
 import DetailFooter from './DetailFooter';
-import pythonCertImg from '../assets/Certificate/python_cert.png';
-import azureCertImg from '../assets/Certificate/azure_cert.png';
-import fabricCertImg from '../assets/Certificate/fabric_cert.png';
+import pythonCertImg from '../assets/Certificate/python_cert.webp';
+import azureCertImg from '../assets/Certificate/azure_cert.webp';
+import fabricCertImg from '../assets/Certificate/fabric_cert.webp';
 import { FaAward } from 'react-icons/fa';
 import { certificates, programmingSkills, toolSkills } from '../data/aboutData';
 const AboutDetail = ({ onClose }) => {

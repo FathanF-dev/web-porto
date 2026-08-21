@@ -1,10 +1,10 @@
-import benerin1 from '../assets/images/benerin1.jpg';
-import benerin2 from '../assets/images/benerin2.jpg';
-import benerin3 from '../assets/images/benerin3.png';
-import robloxEdu1 from '../assets/images/roblox_edu1.png';
-import robloxEdu2 from '../assets/images/roblox_edu2.png';
-import robloxEdu3 from '../assets/images/roblox_edu3.png';
-import robloxEdu4 from '../assets/images/roblox_edu4.png';
+import benerin1 from '../assets/images/benerin1.webp';
+import benerin2 from '../assets/images/benerin2.webp';
+import benerin3 from '../assets/images/benerin3.webp';
+import robloxEdu1 from '../assets/images/roblox_edu1.webp';
+import robloxEdu2 from '../assets/images/roblox_edu2.webp';
+import robloxEdu3 from '../assets/images/roblox_edu3.webp';
+import robloxEdu4 from '../assets/images/roblox_edu4.webp';
 
 export const folders = [
   { id: 1, img: benerin1, title: '📁 Booth & Team', caption: 'Our service booth during the Economic Survival exhibition project' },

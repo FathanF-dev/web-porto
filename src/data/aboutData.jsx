@@ -1,7 +1,7 @@
 import React from 'react';
-import pythonCertImg from '../assets/Certificate/python_cert.png';
-import azureCertImg from '../assets/Certificate/azure_cert.png';
-import fabricCertImg from '../assets/Certificate/fabric_cert.png';
+import pythonCertImg from '../assets/Certificate/python_cert.webp';
+import azureCertImg from '../assets/Certificate/azure_cert.webp';
+import fabricCertImg from '../assets/Certificate/fabric_cert.webp';
 import { FaDragon, FaJava, FaSearch, FaHdd, FaHtml5, FaCss3Alt, FaJs, FaNetworkWired } from 'react-icons/fa';
 import { SiPython, SiCplusplus, SiBurpsuite, SiWireshark, SiLua } from 'react-icons/si';
 
