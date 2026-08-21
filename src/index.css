@@ -510,9 +510,9 @@ img {
   }
 
   .split-layout {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 1.5rem 1.2rem 4.5rem !important;
-    gap: 1.2rem !important;
+    gap: 1.5rem !important;
   }
 
   .split-text-container {
@@ -547,8 +547,8 @@ img {
   }
 
   .split-image-container .img-wrapper {
-    height: 160px !important;
-    max-width: 260px !important;
+    height: 180px !important;
+    max-width: 280px !important;
   }
 
   .contact-socials {
@@ -1656,9 +1656,9 @@ body.dark .cert-card:hover {
   }
 
   .cyber-node-card {
-    min-width: 240px !important;
-    max-width: 260px !important;
-    padding: 1.2rem !important;
+    min-width: 220px !important;
+    max-width: 240px !important;
+    padding: 1rem !important;
     gap: 0.8rem !important;
   }
 
@@ -1673,9 +1673,9 @@ body.dark .cert-card:hover {
   }
 
   .cert-card {
-    min-width: 270px !important;
-    max-width: 290px !important;
-    padding: 1.2rem !important;
+    min-width: 240px !important;
+    max-width: 260px !important;
+    padding: 1rem !important;
   }
 
   .cert-content h3 {
@@ -1687,6 +1687,12 @@ body.dark .cert-card:hover {
     padding: 1.5rem 1rem !important;
     margin: 1.5rem 0 !important;
     border-radius: 12px !important;
+  }
+
+  .featured-project-layout,
+  .wumpus-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 
   .featured-project-badge,
@@ -1736,19 +1742,19 @@ body.dark .cert-card:hover {
   }
 
   .stacked-folders {
-    height: 280px !important;
+    height: 250px !important;
     width: 100% !important;
-    max-width: 290px !important;
+    max-width: 260px !important;
     margin: 0 auto !important;
   }
 
   .folder-card {
-    width: 240px !important;
-    height: 250px !important;
+    width: 230px !important;
+    height: 230px !important;
   }
 
   .folder-img-box {
-    height: 140px !important;
+    height: 125px !important;
   }
 
   .folder-pos-1 {
