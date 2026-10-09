@@ -3,7 +3,7 @@ import projectsImg from '../assets/images/projects.avif';
 import brandLogo from '../assets/images/brand_logo.webp';
 import DetailFooter from './DetailFooter';
 import wumpusImg from '../assets/images/wumpus.webp';
-import { folders, robloxFolders } from '../data/projectsData';
+import { folders, robloxFolders, papikostFolders } from '../data/projectsData';
 
 
 const ProjectsDetail = ({ onClose }) => {
@@ -53,6 +53,24 @@ const ProjectsDetail = ({ onClose }) => {
       setLightboxImg(robloxFolders[index].img);
     } else {
       setActiveRobloxFolder(index);
+    }
+  };
+
+  const [activePapikostFolder, setActivePapikostFolder] = useState(0);
+
+  const handlePapikostNext = () => {
+    setActivePapikostFolder((prev) => (prev + 1) % papikostFolders.length);
+  };
+
+  const handlePapikostPrev = () => {
+    setActivePapikostFolder((prev) => (prev - 1 + papikostFolders.length) % papikostFolders.length);
+  };
+
+  const handlePapikostFolderClick = (index, diff) => {
+    if (diff === 0) {
+      setLightboxImg(papikostFolders[index].img);
+    } else {
+      setActivePapikostFolder(index);
     }
   };
 
@@ -245,6 +263,64 @@ const ProjectsDetail = ({ onClose }) => {
                   &#8592;
                 </button>
                 <button className="nav-arrow-btn" onClick={handleRobloxNext} title="Next Screenshot" aria-label="Next">
+                  &#8594;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Project Section #4: Papikost Management System */}
+        <div className={`featured-project-section anim from-bottom d5 ${animated ? 'show' : ''}`}>
+          <div className="featured-project-badge">FEATURED BACKEND PROJECT</div>
+          <div className="featured-project-layout">
+            <div className="featured-project-info">
+              <div className="project-header">
+                <h2>Papikost - Smart Boarding House Management</h2>
+                <span className="project-period">Professional Development</span>
+              </div>
+              <p className="project-course-tag">Role: Backend Developer & Server Administrator</p>
+              <p className="project-desc">
+                A comprehensive boarding house (kost) management platform designed to streamline operations for property owners and enhance the living experience for residents. The system features a public landing page for prospective tenants to view real-time room availability, a dedicated member portal for active residents to track bills and request maintenance, and a robust admin dashboard for complete property management. As the backend developer, I handled API design, database architecture, and deployed the application on an Ubuntu Linux server using PM2 for production and sandbox process management.
+              </p>
+              <div className="project-highlights">
+                <span className="highlight-tag">🌐 Public, Member & Admin Portals</span>
+                <span className="highlight-tag">🖥️ Backend API Development</span>
+                <span className="highlight-tag">🚀 Ubuntu Server Deployment (PM2)</span>
+                <span className="highlight-tag">🛏️ Real-Time Room Availability</span>
+              </div>
+            </div>
+
+            <div className="stacked-folders-wrapper">
+              <div className="stacked-folders">
+                {papikostFolders.map((folder, idx) => {
+                  const diff = (idx - activePapikostFolder + papikostFolders.length) % papikostFolders.length;
+                  return (
+                    <div
+                      key={folder.id}
+                      className={`folder-card folder-pos-${diff}`}
+                      onClick={() => handlePapikostFolderClick(idx, diff)}
+                      title={diff === 0 ? "Click to enlarge screenshot" : "Click to bring screenshot to front"}
+                    >
+                      <div className="folder-tab">
+                        <span>{folder.title}</span>
+                        {diff === 0 && <span className="zoom-badge">🔍 Zoom</span>}
+                      </div>
+                      <div className="folder-img-box">
+                        <img src={folder.img} alt={folder.title} />
+                      </div>
+                      <div className="folder-caption">{folder.caption}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Navigation controls: arrows only */}
+              <div className="folder-navigation">
+                <button className="nav-arrow-btn" onClick={handlePapikostPrev} title="Previous Screenshot" aria-label="Previous">
+                  &#8592;
+                </button>
+                <button className="nav-arrow-btn" onClick={handlePapikostNext} title="Next Screenshot" aria-label="Next">
                   &#8594;
                 </button>
               </div>

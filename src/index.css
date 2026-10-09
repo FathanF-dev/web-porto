@@ -571,7 +571,7 @@ img {
     flex-direction: row;
     padding: 0.4rem 0.6rem !important;
     gap: 0.25rem !important;
-    z-index: 9999 !important;
+    z-index: 100 !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
   }
 

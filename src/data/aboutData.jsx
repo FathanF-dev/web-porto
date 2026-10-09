@@ -2,6 +2,9 @@ import React from 'react';
 import pythonCertImg from '../assets/Certificate/python_cert.webp';
 import azureCertImg from '../assets/Certificate/azure_cert.webp';
 import fabricCertImg from '../assets/Certificate/fabric_cert.webp';
+import googleAiCertImg from '../assets/Certificate/google_ai_cert.webp';
+import jnaCertImg from '../assets/Certificate/jna_cert.png';
+import jnaCertPdf from '../assets/Certificate/Sertifikat_FATHAN FATAHILAH_Junior Network Administrator.pdf';
 import { FaDragon, FaJava, FaSearch, FaHdd, FaHtml5, FaCss3Alt, FaJs, FaNetworkWired } from 'react-icons/fa';
 import { SiPython, SiCplusplus, SiBurpsuite, SiWireshark, SiLua } from 'react-icons/si';
 
@@ -32,6 +35,24 @@ export const certificates = [
     issuer: "Dicoding & Microsoft",
     url: "https://www.dicoding.com/certificates/07Z67YY1RPQR",
     image: fabricCertImg
+  },
+  {
+    title: "Google AI Professional Certificate",
+    id: "RIJC9358QHXH",
+    date: "25 Agustus 2026",
+    validUntil: "Tanpa Kadaluarsa",
+    issuer: "Coursera",
+    url: "https://coursera.org/verify/professional-cert/RIJC9358QHXH",
+    image: googleAiCertImg
+  },
+  {
+    title: "Junior Network Administrator",
+    id: "-",
+    date: "2024",
+    validUntil: "Tanpa Kadaluarsa",
+    issuer: "Digitalent Komdigi",
+    url: jnaCertPdf,
+    image: jnaCertImg
   }
 ];
 
